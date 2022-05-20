@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   nginx:
-    container_name: nginx
+    container_name: dnd_nginx
     depends_on:
       - nest
       - client
@@ -14,7 +14,7 @@ services:
       - "80:80"
 
   client:
-    container_name: client
+    container_name: dnd_client
     stdin_open: true
     environment:
       - CHOKIDAR_USEPOLLING=true
@@ -29,7 +29,7 @@ services:
       - ./client:/home/node/app
 
   nest:
-    container_name: nest
+    container_name: dnd_nest
     build:
       context: ./nest
     env_file:
@@ -48,7 +48,7 @@ services:
       - mysql
 
   mysql:
-    container_name: mysql
+    container_name: dnd_mysql
     image: mysql:8.0.28-oracle
     env_file:
       - ./nest/.development.env

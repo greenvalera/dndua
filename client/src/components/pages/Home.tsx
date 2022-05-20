@@ -1,12 +1,11 @@
 import React, {FC, Fragment} from "react";
-import UserList from "../UserList";
-import UserInfo from "../UserInfo";
+import Typography from "@mui/material/Typography";
 
 const Home: FC = () => {
     return (
         <Fragment>
-            <UserInfo />
-            <UserList />
+            <Typography variant="h2">Вітаємо</Typography>
+            <Typography variant="h4">Український сайт присвячений грі "Підземелля та дракони"</Typography>
         </Fragment>
     )
 };

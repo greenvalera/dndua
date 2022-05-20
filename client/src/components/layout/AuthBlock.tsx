@@ -1,5 +1,4 @@
 import React, {FC, Fragment} from 'react';
-import {Menu} from "antd";
 import {useSelector} from "react-redux";
 import {RootState} from "../../store";
 import {Button, Typography, Toolbar, useTheme} from "@mui/material";
@@ -34,16 +33,14 @@ const AuthBlock: FC = () => {
     );
 
     return (
-        <Menu
+        <div
             className={"menu"}
-            mode="horizontal"
-            selectable={false}
         >
             {isAuth
                 ? <ProfileSubmenu />
                 : <LoginBlock />
             }
-        </Menu>
+        </div>
     );
 }
 

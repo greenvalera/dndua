@@ -1,19 +1,14 @@
-import React from "react";
+import React, {FC} from "react";
 import {
-  Divider,
   Drawer as MuiDrawer,
-  List, ListItem,
-  ListItemIcon,
-  ListItemText, Toolbar,
+  Toolbar,
 } from "@mui/material";
 import Box from "@mui/material/Box";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon   from "@mui/icons-material/Mail";
-import ListItemButton from "@mui/material/ListItemButton";
+import Menu from "./sidebar/Menu";
 
 const drawerWidth = 240;
 
-const DrawerComp = () => {
+const DrawerComp: FC = () => {
   return (
     <MuiDrawer
       variant="permanent"
@@ -25,31 +20,7 @@ const DrawerComp = () => {
     >
       <Toolbar />
       <Box sx={{ overflow: 'auto' }}>
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem disablePadding key={text}>
-              <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem disablePadding key={text}>
-              <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+        {Menu()}
       </Box>
     </MuiDrawer>
   );
