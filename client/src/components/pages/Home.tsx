@@ -1,11 +1,11 @@
 import React, {FC, Fragment} from "react";
-import Typography from "@mui/material/Typography";
+import MuiMarkdown from 'mui-markdown';
+import md from '../../md/test.md';
 
 const Home: FC = () => {
     return (
         <Fragment>
-            <Typography variant="h2">Вітаємо</Typography>
-            <Typography variant="h4">Український сайт присвячений грі "Підземелля та дракони"</Typography>
+          <MuiMarkdown>{md}</MuiMarkdown>
         </Fragment>
     )
 };
