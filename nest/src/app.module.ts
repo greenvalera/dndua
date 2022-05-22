@@ -8,6 +8,7 @@ import { ServeStaticModule } from "@nestjs/serve-static";
 import { PagesModule } from './pages/pages.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import {ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import {DatabaseModule} from "./database/database.module";
 
 @Module({
   controllers: [AppController],
@@ -23,6 +24,7 @@ import {ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
       ServeStaticModule.forRoot({
         rootPath: path.resolve(__dirname, 'static'),
       }),
+      DatabaseModule,
       FilesModule,
       PagesModule,
   ],

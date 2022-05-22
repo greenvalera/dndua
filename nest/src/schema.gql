@@ -1,0 +1,13 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""page"""
+type Page {
+  id: ID!
+  content: String!
+}
+
+type Query {
+  pages: [Page!]!
+}

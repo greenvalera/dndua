@@ -2,6 +2,7 @@ import { Field, ID, ObjectType } from '@nestjs/graphql';
 import {Column, DataType, Table, Model} from "sequelize-typescript";
 
 interface CreatePageAttrs {
+  id: string
   content: string
 }
 
@@ -9,7 +10,7 @@ interface CreatePageAttrs {
 @Table({tableName: "pages"})
 export class Page extends Model<Page, CreatePageAttrs> {
   @Field(() => ID)
-  @Column({type: DataType.STRING, unique: true, autoIncrement: true, primaryKey: true})
+  @Column({type: DataType.STRING, unique: true, primaryKey: true})
   id: string
 
   @Field(() => String)
