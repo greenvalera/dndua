@@ -2,14 +2,12 @@ import * as path from 'path';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
 import { ConfigModule } from "@nestjs/config";
-import { AuthModule } from './auth/auth.module';
-import { RolesModule } from './roles/roles.module';
-import { PostsModule } from './posts/posts.module';
 import { FilesModule } from './files/files.module';
 import { ServeStaticModule } from "@nestjs/serve-static";
-import { TokensModule } from './tokens/tokens.module';
+import { PagesModule } from './pages/pages.module';
+import { GraphQLModule } from '@nestjs/graphql';
+import {ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 
 @Module({
   controllers: [AppController],
@@ -18,15 +16,15 @@ import { TokensModule } from './tokens/tokens.module';
       ConfigModule.forRoot({
           envFilePath: `.${process.env.NODE_ENV}.env`
       }),
+      GraphQLModule.forRoot<ApolloDriverConfig>({
+        driver: ApolloDriver,
+        autoSchemaFile: path.join(process.cwd(), 'src/schema.gql'),
+      }),
       ServeStaticModule.forRoot({
         rootPath: path.resolve(__dirname, 'static'),
       }),
-      UsersModule,
-      AuthModule,
-      RolesModule,
-      PostsModule,
       FilesModule,
-      TokensModule
+      PagesModule,
   ],
 })
 export class AppModule {}

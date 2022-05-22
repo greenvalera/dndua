@@ -1,9 +1,5 @@
 import { Sequelize } from 'sequelize-typescript';
-import {User} from "../users/user.entity";
-import {Role} from "../roles/role.entity";
-import {UserRoles} from "../roles/user-roles.entity";
-import {Post} from "../posts/post.entity";
-import {Token} from "../tokens/token.entity";
+import {Page} from "../pages/models/page.model";
 
 export const databaseProviders = [
     {
@@ -17,7 +13,7 @@ export const databaseProviders = [
                 password: process.env.DB_PASSWORD,
                 database: process.env.DB_DATABASE,
             });
-            sequelize.addModels([User, Role, UserRoles, Post, Token]);
+            sequelize.addModels([Page]);
             await sequelize.sync();
             return sequelize;
         },
