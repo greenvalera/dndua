@@ -2,6 +2,9 @@
 /dist
 /node_modules
 
+/dnd5srd
+/src/schema.gql
+
 # Logs
 logs
 *.log

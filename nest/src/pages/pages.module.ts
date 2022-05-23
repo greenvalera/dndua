@@ -8,6 +8,9 @@ import {pagesProviders} from "./pages.providers";
     PagesService,
     PagesResolver,
     ...pagesProviders
+  ],
+  exports: [
+    PagesService
   ]
 })
 export class PagesModule {}
