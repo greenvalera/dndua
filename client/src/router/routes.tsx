@@ -1,6 +1,7 @@
 import {ComponentType} from "react";
 import Home from "../components/pages/Home";
 import {SignIn, SignUp} from "../components/auth";
+import Race from "../components/races/Race";
 
 export interface IRoute {
     path: string,
@@ -16,7 +17,7 @@ export const privateRoutes: IRoute[] = [
     },
     {
         path: '/race/:race',
-        component: Home,
+        component: Race,
     },
     {
         path: '/class/:class',
