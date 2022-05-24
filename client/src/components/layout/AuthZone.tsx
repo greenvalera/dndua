@@ -5,7 +5,11 @@ import AppBar from "./AppBar";
 import Drawer from "./Drawer";
 import Toolbar from '@mui/material/Toolbar';
 
-const AuthZone: FC<ReactNode> = ({children}) => {
+interface Props {
+  children: ReactNode,
+}
+
+const AuthZone: FC<Props> = ({children}) => {
   return (
   <Box sx={{ display: 'flex' }}>
     <CssBaseline />

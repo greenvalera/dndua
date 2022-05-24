@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from "react-redux";
 import {
   ApolloClient,
   InMemoryCache,
@@ -9,20 +8,16 @@ import {
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {store} from "./store";
 
 const client = new ApolloClient({
   uri: 'http://localhost/api/graphql',
   cache: new InMemoryCache()
 });
 
-
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <Provider store={store}>
-          <App />
-      </Provider>
+      <App />
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')

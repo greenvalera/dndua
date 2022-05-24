@@ -1,5 +1,5 @@
 export interface RaceData {
-  race: {
+  race?: {
     page: {
       content: string
     }
