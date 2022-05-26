@@ -19,6 +19,10 @@ export class PagesService {
     return await this.pagesRepository.findAll();
   }
 
+  async findByContent(content: string): Promise<Page> {
+    return this.pagesRepository.findOne({where: {content: content}});
+  }
+
   async create({content}: CreateAttrs): Promise<Page> {
     const id = randomUUID();
     return await this.pagesRepository.create({id, content});

@@ -10,6 +10,8 @@ import { GraphQLModule } from '@nestjs/graphql';
 import {ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import {DatabaseModule} from "./database/database.module";
 import { RacesModule } from './races/races.module';
+import { InitModule } from './init/init.module';
+import { ClassesModule } from './classes/classes.module';
 
 @Module({
   controllers: [AppController],
@@ -29,6 +31,8 @@ import { RacesModule } from './races/races.module';
       FilesModule,
       PagesModule,
       RacesModule,
+      InitModule,
+      ClassesModule,
   ],
 })
 export class AppModule {}

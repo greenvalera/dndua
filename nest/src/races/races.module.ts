@@ -12,6 +12,9 @@ import {PagesModule} from "../pages/pages.module";
   ],
   imports: [
     PagesModule
+  ],
+  exports: [
+    RacesService
   ]
 })
 export class RacesModule {}

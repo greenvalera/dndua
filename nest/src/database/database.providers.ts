@@ -1,6 +1,7 @@
 import { Sequelize } from 'sequelize-typescript';
 import {Page} from "../pages/models/page.model";
 import {Race} from "../races/models/race.model";
+import {Class} from "../classes/models/class.model";
 
 export const databaseProviders = [
     {
@@ -14,7 +15,7 @@ export const databaseProviders = [
                 password: process.env.DB_PASSWORD,
                 database: process.env.DB_DATABASE,
             });
-            sequelize.addModels([Page, Race]);
+            sequelize.addModels([Page, Race, Class]);
             await sequelize.sync();
             return sequelize;
         },

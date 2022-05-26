@@ -23,7 +23,7 @@ export const items: MenuItem[] = [
       },
       {
         title: "Эльф",
-        to: "/race/elven",
+        to: "/race/elf",
         items: []
       },
       {
@@ -49,6 +49,11 @@ export const items: MenuItem[] = [
       {
         title: "Напів-орк",
         to: "/race/halforc",
+        items: []
+      },
+      {
+        title: "Драконороджений",
+        to: "/race/dragonborn",
         items: []
       },
     ]
