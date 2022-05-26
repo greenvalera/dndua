@@ -80,7 +80,7 @@ export const items: MenuItem[] = [
       },
       {
         title: "Воїн",
-        to: '/class/warrior',
+        to: '/class/fighter',
       },
       {
         title: "Монах",
@@ -100,10 +100,6 @@ export const items: MenuItem[] = [
       },
       {
         title: "Чаклун",
-        to: '/class/bard',
-      },
-      {
-        title: "Рейнджер",
         to: '/class/bard',
       },
       {

@@ -1,24 +1,24 @@
 import React, {FC, Fragment} from "react";
 import MuiMarkdown from 'mui-markdown';
-import {RACE_QUERY} from "./graphql/race.gql";
+import {CLASS_QUERY} from "./graphql/class.gql";
 import {useQuery} from "@apollo/client";
-import {RaceData, RaceVars} from "./graphql/interfaces";
+import {ClassData, ClassVars} from "./graphql/interfaces";
 import {RouteComponentProps} from "react-router-dom";
 
 type RouteParams = {
   id: string,
 }
 
-const Race: FC<RouteComponentProps<RouteParams>> = ({match}) => {
+const Class: FC<RouteComponentProps<RouteParams>> = ({match}) => {
   const raceValue = match.params.id;
-  const { loading, error, data } = useQuery<RaceData, RaceVars>(RACE_QUERY, {variables: {id: raceValue}});
+  const { loading, error, data } = useQuery<ClassData, ClassVars>(CLASS_QUERY, {variables: {id: raceValue}});
 
   //todo use loading stiled
   if (loading) return <p>Loading...</p>;
   //todo use error page
   if (error) return <p>Error :(</p>;
 
-  const content: string = data?.race?.page?.content || '';
+  const content: string = data?.class?.page?.content || '';
 
   return (
     <Fragment>
@@ -27,4 +27,4 @@ const Race: FC<RouteComponentProps<RouteParams>> = ({match}) => {
   )
 };
 
-export default Race;
+export default Class;
