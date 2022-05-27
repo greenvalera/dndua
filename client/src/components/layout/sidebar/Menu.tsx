@@ -1,4 +1,5 @@
 import React, {FC, useState} from "react";
+import { useLocation } from 'react-router-dom'
 import {Collapse, List, ListItem, ListItemIcon, ListItemText, useTheme} from "@mui/material";
 import {ExpandLess as ExpandLessIcon, ExpandMore as ExpandMoreIcon} from "@mui/icons-material";
 import { items } from "./items";
@@ -21,10 +22,13 @@ const MenuItem: FC<MenuItemProps> = ({ item }) => {
 };
 
 const SingleLevel: FC<MenuItemProps> = ({ item }) => {
+  const location = useLocation();
+  const isActive = location.pathname === item.to;
   const theme = useTheme();
 
   const linkStyle = {
-    color: theme.palette.text.primary,
+    color: isActive ? theme.palette.text.secondary : theme.palette.text.primary,
+    backgroundColor: isActive ? theme.palette.grey.A200 : "inherit",
   };
 
   return (
@@ -35,9 +39,15 @@ const SingleLevel: FC<MenuItemProps> = ({ item }) => {
   );
 };
 
+const hasActiveItem = (items: IMenuItem[], location: string): boolean => items.some((item) => {
+  return item.to === location;
+});
+
 const MultiLevel: FC<MenuItemProps> = ({ item }) => {
   const { items: children } = item;
-  const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const openDefaultState = hasActiveItem(children || [], location.pathname);
+  const [open, setOpen] = useState(openDefaultState);
 
   const handleClick = () => {
     setOpen((prev) => !prev);

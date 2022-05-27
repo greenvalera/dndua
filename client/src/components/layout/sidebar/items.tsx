@@ -99,10 +99,6 @@ export const items: MenuItem[] = [
         to: '/class/rogue',
       },
       {
-        title: "Чаклун",
-        to: '/class/bard',
-      },
-      {
         title: "Чарівник",
         to: '/class/wizard',
       },
