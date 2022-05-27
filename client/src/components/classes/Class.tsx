@@ -4,6 +4,8 @@ import {CLASS_QUERY} from "./graphql/class.gql";
 import {useQuery} from "@apollo/client";
 import {ClassData, ClassVars} from "./graphql/interfaces";
 import {RouteComponentProps} from "react-router-dom";
+import PageSkeleton from "../layout/PageSkeleton";
+import ErrorPage from "../layout/ErrorPage";
 
 type RouteParams = {
   id: string,
@@ -13,10 +15,8 @@ const Class: FC<RouteComponentProps<RouteParams>> = ({match}) => {
   const raceValue = match.params.id;
   const { loading, error, data } = useQuery<ClassData, ClassVars>(CLASS_QUERY, {variables: {id: raceValue}});
 
-  //todo use loading stiled
-  if (loading) return <p>Loading...</p>;
-  //todo use error page
-  if (error) return <p>Error :(</p>;
+  if (loading) return <PageSkeleton />;
+  if (error) return <ErrorPage />;
 
   const content: string = data?.class?.page?.content || '';
 
