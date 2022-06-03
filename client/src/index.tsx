@@ -10,7 +10,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const client = new ApolloClient({
-  uri: 'http://localhost/api/graphql',
+  uri: `http://${process.env.REACT_APP_API_HOST}/api/graphql`,
   cache: new InMemoryCache()
 });
 
