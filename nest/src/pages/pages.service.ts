@@ -33,15 +33,9 @@ export class PagesService {
       __dirname, '..', '..', 'dnd5srd', 'Documents'
     );
 
-    console.log(page);
-
     const fileName = `${page.content}.md`;
     const filePath = path.join(baseDir, fileName);
 
-    const content = fs.readFileSync(filePath).toString();
-
-    console.log(content);
-
-    return content;
+    return fs.readFileSync(filePath).toString();
   }
 }
