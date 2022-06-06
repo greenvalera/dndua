@@ -3,12 +3,20 @@ import {RACE_QUERY} from "../../components/races/graphql/race.gql";
 import client from "../../graphql/client";
 import Page from "../../components/page";
 import {RaceData, RaceVars} from "../../components/races/graphql/interfaces";
+import PageSkeleton from "../../components/layout/PageSkeleton";
+import useLoading from "../../utils/useLoading";
 
 interface RacePageProps {
   content: string;
 }
 
 const RacePage: FC<RacePageProps> = ({content}) => {
+  const loading = useLoading();
+
+  if (loading) {
+    return (<PageSkeleton />);
+  }
+
   return (
     <Page content={content}/>
   )

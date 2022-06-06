@@ -3,12 +3,19 @@ import {CLASS_QUERY} from "../../components/classes/graphql/class.gql";
 import client from "../../graphql/client";
 import Page from "../../components/page";
 import {ClassData, ClassVars} from "../../components/classes/graphql/interfaces";
+import useLoading from "../../utils/useLoading";
+import PageSkeleton from "../../components/layout/PageSkeleton";
 
 interface ClassPageProps {
   content: string;
 }
 
 const ClassPage: FC<ClassPageProps> = ({content}) => {
+  const loading = useLoading();
+
+  if (loading) {
+    return (<PageSkeleton />);
+  }
   return (
     <Page content={content}/>
   )
